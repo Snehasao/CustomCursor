@@ -1,8 +1,16 @@
-var cusor=document.querySelector(".cursor")
-cusor.style.backgroundColor="blue"
+var elem =document.querySelectorAll(".elem")
 
-main.addEventListener("mousemove",function(e){
+elem.forEach(function(val){
+    val.addEventListener("mouseenter",function(){
+        val.childNodes[3].style.opacity=1
+    });
 
-    cusor.style.left=e.x+"px"
-    cusor.style.top=e.y+"px"
+    val.addEventListener("mouseleave",function () {
+        val.childNodes[3].style.opacity=0
+    });
+
+    val.addEventListener("mousemove",function(dets){
+        val.childNodes[3].style.left=dets.x+"px"
+        val.childNodes[3].style.top=dets.y+"px"
+    })
 })
